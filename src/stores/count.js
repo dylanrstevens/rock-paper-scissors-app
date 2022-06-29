@@ -4,12 +4,12 @@ export const useCountStore = defineStore({
     id: 'count',
     state: () => ({
         countDown: 3,
-        countDownDone: false
+        countDownDone: false,
+        cpu_choice: 2
     }),
     actions: {
-        countDownTimer() {
-            
-            if (this.countDown > 0) {
+        countDownTimer() { 
+            if (this.countDown > 0 && this.countDownDone == false) {
                 setTimeout(() => {
                     this.countDown -= 1
                     this.countDownTimer()
@@ -19,13 +19,18 @@ export const useCountStore = defineStore({
             else {
                 this.countDown = 0
                 this.countDownDone = true
+                this.randomCPUChoice()
                 setTimeout(() => {
                     this.countDown = 3
-                    this.countDownDone = false
                     this.countDownTimer()
-                }, 1000)
+                    this.countDownDone = false
+                }, 2000)
+                
                 
             }
-        }
+        },
+        randomCPUChoice() {   
+            this.cpu_choice = Math.floor(Math.random()*3); 
+        },
     }
 });

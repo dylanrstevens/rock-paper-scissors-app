@@ -3,8 +3,9 @@
   import { useCountStore } from '../stores/count';
   import { onMounted, ref, computed, watch } from 'vue';
   
+  
   const choice = useChoiceStore();
-  const countdown = useCountStore();
+  const play = useCountStore();
   const enableButton = true;
   /**
    * 0 -> Rock
@@ -22,15 +23,11 @@
     choice.setPlayerChoice(2);
   }
 
-  const setCPUChoice = () => {
-    choice.randomCPUChoice();
-  }
-
   const result = computed(() => {
-    if ((choice.player_choice + 1)%3 == choice.cpu_choice) {
+    if ((choice.player_choice + 1)%3 == play.cpu_choice) {
       return "You Lose";
     }
-    else if (choice.player_choice == choice.cpu_choice) {
+    else if (choice.player_choice == play.cpu_choice) {
       return "Tie";
     }
     else {
@@ -38,27 +35,43 @@
     }
   });
 
+  const valString = (val) => {
+    if (val == 0) {
+      return "Rock"
+    }
+    else if (val == 1) {
+      return "Paper"
+    }
+    else if (val == 2) {
+      return "Scissors"
+    }
+
+  }
+
   const toggleButtonEnable = computed(() => {
-    return countdown.countDownDone;
+    return play.countDownDone;
   });
 
   onMounted(() => {
-    countdown.countDownTimer();
+    play.countDownTimer();
   });
 
 
 </script>
 
 <template>
-  <button @click="setChoiceRock(); setCPUChoice()" :disabled="toggleButtonEnable">Rock</button>
+  <button class="rock-button" @click="setChoiceRock()" :disabled="toggleButtonEnable"><img src="../assets/rock.png"><br>Rock</button>
 
-  <button @click="setChoicePaper(); setCPUChoice()" :disabled="toggleButtonEnable">Paper</button>
+  <button class="paper-button" @click="setChoicePaper()" :disabled="toggleButtonEnable"><img src="../assets/paper.png"><br>Paper</button>
 
-  <button @click="setChoiceScissors(); setCPUChoice()" :disabled="toggleButtonEnable">Scissors</button>
+  <button class="scissors-button" @click="setChoiceScissors()" :disabled="toggleButtonEnable"><img src="../assets/scissors.png"><br>Scissors</button>
 
-  <br>Your choice: {{choice.player_choice}}
-  <br>CPU choice: {{choice.cpu_choice}}
-  <br><div v-if="countdown.countDownDone">{{ result }}</div>
-  {{countdown.countDown}}
-
+  <br>You choose - {{valString(choice.player_choice)}}
+  <br>The computer chooses - <div style="display:inline" v-if="play.countDownDone">{{valString(play.cpu_choice)}}</div>
+  <br><div style="display:inline" v-if="play.countDownDone">{{ result }}</div>
+  <br><div>{{play.countDown}}</div>
+  <div class="title"></div>
+  
 </template>
+
+<style src="../assets/style.css"></style>
