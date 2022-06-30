@@ -91,15 +91,20 @@
 
       <button class="scissors-button" @click="setChoiceScissors()" :disabled="toggleButtonEnable"><img src="../assets/scissors-left.png"><br>Scissors</button>
     </div>
-    <br>
     <div class="YourChoice">
        <img :src="(`${returnImagePlayer}`)"> <br> You choose - {{valString(choice.player_choice)}}
     </div>
     <div class="CPUChoice">
-      <img v-if="play.countDownDone" :src="(`${returnImageCPU}`)"> <br> The computer chooses - <div style="display:inline" v-if="play.countDownDone">{{valString(play.cpu_choice)}}</div>
+      <div class="topPad" v-if="!play.countDownDone"></div>
+      <img v-if="play.countDownDone" :src="(`${returnImageCPU}`)"> <br> CPU Choice - <div style="display:inline" v-if="play.countDownDone">{{valString(play.cpu_choice)}}</div>
     </div>
-    <br><div class="counter" v-if="play.countDownDone">{{ result }}</div>
-    <br><div class="counter">{{play.countDown}}</div>
+    <div class="counter">
+      <br v-if="!play.countDownDone">
+      <div v-if="play.countDownDone">
+        {{ result }}
+      </div>
+      {{play.countDown}}
+    </div>
   </div>
 </template>
 

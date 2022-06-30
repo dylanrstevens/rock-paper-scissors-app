@@ -1,49 +1,101 @@
+* {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
 .GameBox {
     margin: auto;
-    width: 50%;
-    border: 3px solid blue;
+    border: 3px solid black;
+    border-radius: 20px;
     padding: 10px;
-    text-align: center;
-    display: grid;
-    grid-template-columns: auto auto auto;
+    display: inline-grid;
+    grid-template-rows: 150px 100px 150px;
+    grid-template-columns: 150px 100px 150px;
+    grid-gap: 3px;
+    justify-items: center;
+    align-items: center;
 }
 
 .YourChoice {
-    border: 3px solid blue;
     text-align: center;
-    width: 50%;
-    grid-column-start: 2;
-    grid-column-end: 2;
+    width: 150px;
+    grid-column-start: 1;
 }
 
 .CPUChoice {
-    border: 3px solid blue;
     text-align: center;
-    width: 50%;
+    width: 150px;
     grid-column-start: 3;
-    grid-column-end: 3;
     
 }
 
+.topPad {
+    padding-top: 58px;
+}
+
 .Buttons {
-    grid-column-start: 1;
-    grid-column-end: 4;
-}
-
-.rock-button {
-    font-size: 20px;
-}
-
-.paper-button {
-    font-size: 20px;
-}
-
-.scissors-button {
-    font-size: 20px;
+    width: 268px;
+    grid-column-start: 2;
 }
 
 .counter {
-    font-size: 30px;
-    grid-column-start: 1;
-    grid-column-end: 4;
+
+    font-size: 50px;
+    text-align: center;
+    width: 200px;
+    grid-column-start: 2;
+}
+
+.rock-button {
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 20px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    font-size: 18px;
+}
+
+.rock-button:hover {
+  background-color: #fff;
+}
+
+.rock-button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.paper-button {
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 20px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    font-size: 20px;
+}
+
+.paper-button:hover {
+  background-color: #fff;
+}
+
+.paper-button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.scissors-button {
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 20px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    font-size: 18px;
+}
+
+.scissors-button:hover {
+  background-color: #fff;
+}
+
+.scissors-button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
 }
