@@ -1,3 +1,35 @@
+.GameBox {
+    margin: auto;
+    width: 50%;
+    border: 3px solid blue;
+    padding: 10px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.YourChoice {
+    border: 3px solid blue;
+    text-align: center;
+    width: 50%;
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.CPUChoice {
+    border: 3px solid blue;
+    text-align: center;
+    width: 50%;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    
+}
+
+.Buttons {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
 .rock-button {
     font-size: 20px;
 }
@@ -10,6 +42,8 @@
     font-size: 20px;
 }
 
-.emoji {
-    font-size: 40px;
+.counter {
+    font-size: 30px;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
