@@ -1,11 +1,16 @@
 * {
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background-image: radial-gradient(circle, rgb(59, 70, 97), rgb(60, 65, 77));
 }
 
 .GameBox {
     margin: auto;
-    border: 3px solid black;
+    border: 3px solid rgb(192, 192, 192);
+    background-color: rgb(226, 223, 212);
     border-radius: 20px;
     padding: 10px;
     display: inline-grid;
@@ -29,8 +34,8 @@
     
 }
 
-.topPad {
-    padding-top: 58px;
+.CPUChoice2 {  
+    visibility: hidden;
 }
 
 .Buttons {
@@ -102,4 +107,19 @@
 .scissors-button:active {
     box-shadow: #422800 2px 2px 0 0;
     transform: translate(2px, 2px);
+}
+
+.rock-button:disabled {
+    background-color: rgb(179, 179, 179);
+    pointer-events: none;
+}
+
+.paper-button:disabled {
+    background-color: rgb(179, 179, 179);
+    pointer-events: none;
+}
+
+.scissors-button:disabled {
+    background-color: rgb(179, 179, 179);
+    pointer-events: none;
 }

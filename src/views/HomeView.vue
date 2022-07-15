@@ -94,10 +94,13 @@
     <div class="YourChoice">
        <img :src="(`${returnImagePlayer}`)"> <br> You choose - {{valString(choice.player_choice)}}
     </div>
-    <div class="CPUChoice">
-      <div class="topPad" v-if="!play.countDownDone"></div>
-      <img v-if="play.countDownDone" :src="(`${returnImageCPU}`)"> <br> CPU Choice - <div style="display:inline" v-if="play.countDownDone">{{valString(play.cpu_choice)}}</div>
+    <div v-if="play.countDownDone" class="CPUChoice">
+      <img :src="(`${returnImageCPU}`)"> <br> CPU Choice - <div style="display:inline" v-if="play.countDownDone">{{valString(play.cpu_choice)}}</div>
     </div>
+    <div v-if="!play.countDownDone" class="CPUChoice">
+      <img class="CPUChoice2" :src="(`${returnImageCPU}`)"> <br> CPU Choice - <div style="display:inline" v-if="play.countDownDone">{{valString(play.cpu_choice)}}</div>
+    </div>
+    
     <div class="counter">
       <br v-if="!play.countDownDone">
       <div v-if="play.countDownDone">

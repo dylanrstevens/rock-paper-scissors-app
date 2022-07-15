@@ -7,8 +7,6 @@ import { RouterLink, RouterView } from 'vue-router'
     <div>
 
       <nav>
-        <RouterLink to="/">Play</RouterLink><br>
-        <RouterLink to="/instructions">Instructions</RouterLink>
       </nav>
 
     </div>
