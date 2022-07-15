@@ -34,8 +34,18 @@ body {
     
 }
 
-.CPUChoice2 {  
+.non-visible {  
     visibility: hidden;
+}
+
+.Cpu_Score {
+    padding-top: 100px;
+    font-size: 20px;
+}
+
+.Player_Score {
+    padding-top: 100px;
+    font-size: 20px;
 }
 
 .Buttons {

@@ -2,11 +2,9 @@
   import { useChoiceStore } from '../stores/choice';
   import { useCountStore } from '../stores/count';
   import { onMounted, ref, computed } from 'vue';
+
   
-  const rockfile = ref("src/assets/rock-left.png")
-  const choice = useChoiceStore();
   const play = useCountStore();
-  const enableButton = true;
   /**
    * 0 -> Rock
    * 1 -> Paper
@@ -14,20 +12,20 @@
    * 3 -> Null
    */
   const setChoiceRock = () => {
-    choice.setPlayerChoice(0);
+    play.setPlayerChoice(0);
   } 
   const setChoicePaper = () => {
-    choice.setPlayerChoice(1);
+    play.setPlayerChoice(1);
   }
   const setChoiceScissors = () => {
-    choice.setPlayerChoice(2);
+    play.setPlayerChoice(2);
   }
 
   const result = computed(() => {
-    if ((choice.player_choice + 1)%3 == play.cpu_choice) {
+    if ((play.player_choice + 1)%3 == play.cpu_choice) {
       return "You Lose";
     }
-    else if (choice.player_choice == play.cpu_choice) {
+    else if (play.player_choice == play.cpu_choice) {
       return "Tie";
     }
     else {
@@ -36,10 +34,10 @@
   });
 
   const returnImagePlayer = computed(() => {
-    if (choice.player_choice == 0) {
+    if (play.player_choice == 0) {
       return "src/assets/rock-left.png"
     }
-    else if (choice.player_choice == 1) {
+    else if (play.player_choice == 1) {
       return "src/assets/paper-left.png"
     }
     else {
@@ -92,21 +90,28 @@
       <button class="scissors-button" @click="setChoiceScissors()" :disabled="toggleButtonEnable"><img src="../assets/scissors-left.png"><br>Scissors</button>
     </div>
     <div class="YourChoice">
-       <img :src="(`${returnImagePlayer}`)"> <br> You choose - {{valString(choice.player_choice)}}
+       <img :src="(`${returnImagePlayer}`)"> <br> You choose - {{valString(play.player_choice)}}
     </div>
     <div v-if="play.countDownDone" class="CPUChoice">
       <img :src="(`${returnImageCPU}`)"> <br> CPU Choice - <div style="display:inline" v-if="play.countDownDone">{{valString(play.cpu_choice)}}</div>
     </div>
     <div v-if="!play.countDownDone" class="CPUChoice">
-      <img class="CPUChoice2" :src="(`${returnImageCPU}`)"> <br> CPU Choice - <div style="display:inline" v-if="play.countDownDone">{{valString(play.cpu_choice)}}</div>
+      <img class="non-visible" :src="(`${returnImageCPU}`)"> <br> CPU Choice - <div style="display:inline" v-if="play.countDownDone">{{valString(play.cpu_choice)}}</div>
     </div>
-    
+    <div class="Player_Score">
+      Your Score:<br>
+      {{play.player_score}}
+    </div>
     <div class="counter">
       <br v-if="!play.countDownDone">
       <div v-if="play.countDownDone">
         {{ result }}
       </div>
       {{play.countDown}}
+    </div>
+    <div class="Cpu_Score">
+      CPU Score:<br>
+      {{play.cpu_score}}
     </div>
   </div>
 </template>

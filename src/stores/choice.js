@@ -8,7 +8,6 @@ export const useChoiceStore = defineStore({
   actions: {
     setPlayerChoice(x) {
       this.player_choice = x;
-    },
-
+    }
   }
 })
