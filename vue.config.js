@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: "./"
+    publicPath: "/rock-paper-scissors-app/"
 };
