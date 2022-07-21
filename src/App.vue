@@ -35,25 +35,25 @@
 
   const returnImagePlayer = computed(() => {
     if (play.player_choice == 0) {
-      return "/rock-left.png"
+      return "/rock-paper-scissors-app/rock-left.png"
     }
     else if (play.player_choice == 1) {
-      return "/paper-left.png"
+      return "/rock-paper-scissors-app/paper-left.png"
     }
     else {
-      return "/scissors-left.png"
+      return "/rock-paper-scissors-app/scissors-left.png"
     }
   });
 
   const returnImageCPU = computed(() => {
     if (play.cpu_choice == 0) {
-      return "/rock-right.png"
+      return "/rock-paper-scissors-app/rock-right.png"
     }
     else if (play.cpu_choice == 1) {
-      return "/paper-right.png"
+      return "/rock-paper-scissors-app/paper-right.png"
     }
     else {
-      return "/scissors-right.png"
+      return "/rock-paper-scissors-app/scissors-right.png"
     }
   });
 
