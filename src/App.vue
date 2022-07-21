@@ -35,25 +35,25 @@
 
   const returnImagePlayer = computed(() => {
     if (play.player_choice == 0) {
-      return "src/assets/rock-left.png"
+      return "/rock-left.png"
     }
     else if (play.player_choice == 1) {
-      return "src/assets/paper-left.png"
+      return "/paper-left.png"
     }
     else {
-      return "src/assets/scissors-left.png"
+      return "/scissors-left.png"
     }
   });
 
   const returnImageCPU = computed(() => {
     if (play.cpu_choice == 0) {
-      return "src/assets/rock-right.png"
+      return "/rock-right.png"
     }
     else if (play.cpu_choice == 1) {
-      return "src/assets/paper-right.png"
+      return "/paper-right.png"
     }
     else {
-      return "src/assets/scissors-right.png"
+      return "/scissors-right.png"
     }
   });
 
@@ -83,11 +83,11 @@
 <template>
   <div class="GameBox">
     <div class="Buttons">
-      <button class="rock-button" @click="setChoiceRock()" :disabled="toggleButtonEnable"><img src="./assets/rock-left.png"><br>Rock</button>
+      <button class="rock-button" @click="setChoiceRock()" :disabled="toggleButtonEnable"><img src="/rock-left.png"><br>Rock</button>
 
-      <button class="paper-button" @click="setChoicePaper()" :disabled="toggleButtonEnable"><img src="./assets/paper-left.png"><br>Paper</button>
+      <button class="paper-button" @click="setChoicePaper()" :disabled="toggleButtonEnable"><img src="/paper-left.png"><br>Paper</button>
 
-      <button class="scissors-button" @click="setChoiceScissors()" :disabled="toggleButtonEnable"><img src="./assets/scissors-left.png"><br>Scissors</button>
+      <button class="scissors-button" @click="setChoiceScissors()" :disabled="toggleButtonEnable"><img src="/scissors-left.png"><br>Scissors</button>
     </div>
     <div class="YourChoice">
        <img :src="(`${returnImagePlayer}`)"> <br> You choose - {{valString(play.player_choice)}}
