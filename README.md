@@ -4,4 +4,4 @@ Uses automatic countdown for each 'round' where the outcome is decided when the 
 Select a choice before the countdown ends and test your luck against the Math.random() function!
 <br>
 <br>
-See app at 
+See app at https://dylanrstevens.github.io/rock-paper-scissors-app/
